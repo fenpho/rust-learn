@@ -1,0 +1,13 @@
+[package]
+name = "test"
+version = "0.1.0"
+edition = "2021"
+authors = ["Fenpho <fenpho@163.com>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+uuid = { version = "0.8.1", features = ["v4"] }
+libloading = "0.5"
+rsa = "0.4"
+rand = "0.8"
