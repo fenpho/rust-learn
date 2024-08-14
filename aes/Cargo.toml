@@ -1,0 +1,12 @@
+[package]
+name = "aes"
+version = "0.1.0"
+edition = "2021"
+authors = ["Fenpho <fenpho@163.com>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rust-crypto = "0.2.36"
+uuid = { version = "0.8.1", features = ["v4"] }
+rand = "0.8"

@@ -7,7 +7,7 @@ fn main() {
     let bytes = id.as_bytes();
 
     // 将 UUID 打印出来
-    println!("Generated UUID: {}", id);
+    println!("Generated UUID: {:?}", bytes);
     let hex_string = bytes
         .iter()
         .map(|b| format!("{:02X}", b))
