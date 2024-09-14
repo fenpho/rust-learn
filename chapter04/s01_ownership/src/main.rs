@@ -55,15 +55,73 @@
 // fn calculate_length(s: String) -> (String, usize) {
 //     let length = s.len(); // len()会返回当前字符串的长度
 
-//     (s, length) 
+//     (s, length)
 // }
 
+// fn main() {
+//     let s1 = String::from("hello");
+//     let len = calculute_length(&s1);
+//     println!("The length of '{}' is {}.", s1, len);
+// }
+
+// fn calculate_length(s: &String) -> usize { // s 是一个指向 String 的引用
+//     s.len()
+// } // 到这里，s离开作用域。但是由于它并不持有自己所指向值的所有权，
+// //所以没有什么特殊的事情会发生
+
 fn main() {
-    let s1 = String::from("hello");
-    let len = calculute_length(&s1);
-    println!("The length of '{}' is {}.", s1, len);
+    // let mut s = String::from("hello");
+    // change(&mut s);
+
+    let s = String::from("hello World");
+    // let word = first_word(&s);
+    // println!("i is: {}", i);
+
+    // let mut s = String::from("hello world");
+    let word = first_word(&s); // 索引5会被绑定到变量word上
+                               // s.clear(); // 这里的clear方法会清空当前字符串，使之变为""
+                               // 虽然word依然拥有5这个值，但因为我们用于搜索的字符串发生了改变，
+                               //所以这个索引也就没有任何意义了，word到这里便失去了有效性
+    println!("word is: {}", word);
+
+    // let s = String::from("hello world");
+    // let hello = &s[0..5];
+    // let world = &s[6..11];
+
+    let a = 1;
+    // let slice = &a[1..3];
+    let b = a;
+    println!("word is: {:?}", a);
+}
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
 }
 
-fn calculute_length(s: &String) -> usize {
-    s.len()
+// fn first_word(s: &String) -> usize {
+//     let bytes = s.as_bytes();
+//     for (i, &item) in bytes.iter().enumerate() {
+//         if item == b' ' {
+//             return i;
+//         }
+//     }
+//     s.len()
+// }
+
+// fn first_word(s: &String) -> &str {
+//     let bytes = s.as_bytes();
+//     for (i, &item) in bytes.iter().enumerate() {
+//         if item == b' ' {
+//             return &s[0..i];
+//         }
+//     }
+//     &s[..]
+// }
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+    &s[..]
 }

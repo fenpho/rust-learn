@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "branches"
+name = "s02_rectangles"
 version = "0.1.0"
